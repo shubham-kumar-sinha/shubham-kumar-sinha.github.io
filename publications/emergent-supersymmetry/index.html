@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ea">
+  <meta name="description" content="An illustrated guide to Emergent supersymmetry at large N by Shiroman Prakash and Shubham Kumar Sinha. Explore the matrix models, follow their renormalization-group flow, and see which predictions agree.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Emergent supersymmetry at large N">
+  <meta property="og:description" content="An interactive tour of a quantum field theory result. Build the matrices, follow the flow, and see what changes when N grows.">
+  <meta property="og:url" content="https://shubham-kumar-sinha.github.io/publications/emergent-supersymmetry/">
+  <link rel="canonical" href="https://shubham-kumar-sinha.github.io/publications/emergent-supersymmetry/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="explainer.css">
+  <script src="illustrations.js" defer></script>
+  <script src="explorer.js" defer></script>
+  <title>Emergent supersymmetry at large N | Shubham Kumar Sinha</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header wrap" id="top">
+    <a class="brand" href="../../">
+      <span class="brand-mark" aria-hidden="true">S<span>.</span></span>
+      <span>Shubham Kumar Sinha <small>Theoretical physics</small></span>
+    </a>
+    <a class="back-link" href="../../#publications"><span aria-hidden="true">←</span> Publications</a>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> An illustrated research paper</p>
+        <h1 id="page-title">Emergent<br class="hero-break"> supersymmetry<br class="hero-break"> <em>at large <var>N</var></em></h1>
+        <p class="hero-question">Can quantum theories with different microscopic rules make the same predictions when you zoom out?</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#idea">Explore the result <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="https://doi.org/10.1007/JHEP01(2024)025">Read the paper <span class="external-icon" aria-hidden="true"></span></a>
+        </div>
+        <div class="byline">
+          <span>Shiroman Prakash and Shubham Kumar Sinha</span>
+          <span>Journal of High Energy Physics · 2024</span>
+        </div>
+      </div>
+      <figure class="cover">
+        <canvas id="cover-art" aria-hidden="true"></canvas>
+        <figcaption class="cover-caption">
+          <span><i class="cover-swatch cover-swatch-mint" aria-hidden="true"></i> Bosonic field</span>
+          <span><i class="cover-swatch cover-swatch-gold" aria-hidden="true"></i> Fermionic field</span>
+        </figcaption>
+        <div class="cover-footer">
+          <span>Concept illustration</span>
+          <button type="button" id="cover-toggle" class="motion-button requires-js">Pause animation</button>
+        </div>
+      </figure>
+    </section>
+
+    <noscript><p class="wrap small">Enable JavaScript to use the animations and interactive plots.</p></noscript>
+
+    <nav class="chapter-nav wrap" aria-label="On this page">
+      <a href="#idea">The idea</a>
+      <a href="#models">Matrix models</a>
+      <a href="#planar">Planar diagrams</a>
+      <a href="#flow">RG flow</a>
+      <a href="#dimensions">Scaling dimensions</a>
+      <a href="#paper">The paper</a>
+    </nav>
+
+    <section class="wrap idea" id="idea" aria-labelledby="idea-title">
+      <div>
+        <p class="eyebrow">The idea</p>
+        <h2 id="idea-title">What changes when <em>you zoom out?</em></h2>
+      </div>
+      <div class="idea-copy">
+        <p>Think of a photograph that reveals new patterns as you step back. In a quantum field theory, changing the distance you probe can change which interactions matter. At a <strong>fixed point</strong>, the effective rules stop changing with scale.</p>
+        <p><strong>Supersymmetry</strong> is a symmetry that relates two kinds of fields, bosons and fermions. In the first two models in this paper, the long-distance rules can become supersymmetric after tuning to criticality. The third model is nonsupersymmetric at finite <var>N</var>. In the large-<var>N</var> limit, a set of its long-distance predictions matches those of the supersymmetric models.</p>
+      </div>
+    </section>
+
+    <section class="wrap section" id="models" aria-labelledby="models-title">
+      <header class="section-intro">
+        <p class="eyebrow">Matrix models</p>
+        <h2 id="models-title">What does <em><var>N</var></em> count?</h2>
+        <p>Each field is an <var>N</var> × <var>N</var> matrix. The rules for its entries determine how many components can vary independently. Try all three models and watch the counts change.</p>
+      </header>
+
+      <div class="matrix-lab panel">
+        <div class="matrix-controls">
+          <div class="segmented requires-js" role="group" aria-label="Choose a matrix model">
+            <button type="button" data-model="unitary" aria-pressed="false">SU(<var>N</var>) adjoint</button>
+            <button type="button" data-model="symmetric" aria-pressed="false">SO(<var>N</var>) S<sub>2</sub></button>
+            <button type="button" data-model="mixed" aria-pressed="true">SO(<var>N</var>) S<sub>2</sub>–A<sub>2</sub></button>
+          </div>
+          <div class="slider-box matrix-slider requires-js">
+            <div class="slider-label"><label for="matrix-size">Matrix size <var>N</var></label><output id="size-value" for="matrix-size">8</output></div>
+            <input type="range" id="matrix-size" min="3" max="100" value="8">
+          </div>
+        </div>
+
+        <div class="matrix-pair">
+          <article class="matrix-card scalar-card">
+            <div class="matrix-heading"><h3>Scalar <var>φ</var></h3><span id="scalar-count" class="matrix-number">35</span></div>
+            <div class="matrix-grid" id="scalar-matrix" aria-hidden="true"></div>
+            <p id="scalar-rule">Symmetric and traceless. Mirrored entries agree.</p>
+          </article>
+          <article class="matrix-card fermion-card">
+            <div class="matrix-heading"><h3>Fermion <var>ψ</var></h3><span id="fermion-count" class="matrix-number">28</span></div>
+            <div class="matrix-grid" id="fermion-matrix" aria-hidden="true"></div>
+            <p id="fermion-rule">Antisymmetric. Mirrored entries have opposite signs, and the diagonal is zero.</p>
+          </article>
+        </div>
+
+        <div class="matrix-footer">
+          <div>
+            <p id="matrix-summary" role="status">The mixed model has 7 more scalar components than fermion components.</p>
+            <p id="matrix-detail" class="small">The counts refer to internal field components. Spinor indices are separate.</p>
+          </div>
+          <p class="matrix-key small requires-js"><i aria-hidden="true"></i> Independent entries <span id="matrix-window">8 × 8 display</span></p>
+        </div>
+      </div>
+      <a class="source-link" href="https://arxiv.org/pdf/2307.06841#page=7">Field definitions and matrix rules · Paper §2.1 <span class="external-icon" aria-hidden="true"></span></a>
+    </section>
+
+    <section class="planar-band" id="planar" aria-labelledby="planar-title">
+      <div class="wrap planar-inner">
+        <div class="planar-copy">
+          <p class="eyebrow">Planar diagrams</p>
+          <h2 id="planar-title">Why the <em>simplest diagrams</em> win</h2>
+          <p>A matrix entry carries two indices. Each free index can take <var>N</var> values, so a diagram with more free sums can carry more weight as <var>N</var> grows.</p>
+          <p>In this four-matrix example, pair neighboring entries, then try crossing the pairings. Watch the corner labels to see which indices have to be equal.</p>
+          <div class="paper-note">
+            <h3>How this connects to the paper</h3>
+            <p>After matching couplings, planar diagrams for observables shared by the three models agree in perturbation theory. The equivalence assumes the symmetries used to relate the models stay unbroken. Traces such as <span class="equation">tr(<var>φ</var><sup>2</sup>)</span> and <span class="equation">tr(<var>φ</var><sup>3</sup>)</span> are examples.</p>
+            <a class="source-link" href="https://arxiv.org/pdf/2307.06841#page=9">Large-<var>N</var> equivalence · Paper §2.2 <span class="external-icon" aria-hidden="true"></span></a>
+          </div>
+        </div>
+
+        <div class="pairing-lab panel">
+          <div class="lab-title"><h3>Pair four matrix entries</h3><span>Gaussian example</span></div>
+          <div class="pair-buttons segmented requires-js" role="group" aria-label="Choose an index pairing">
+            <button type="button" data-pair="adjacent" aria-pressed="true">Adjacent pairing</button>
+            <button type="button" data-pair="crossed" aria-pressed="false">Crossed pairing</button>
+          </div>
+          <figure class="pair-figure">
+            <canvas id="pair-plot" role="img" aria-label="Adjacent pairing of four matrix entries. The corner indices i and k are identified, leaving three free indices."></canvas>
+            <figcaption>Equal-colored corners share one index.</figcaption>
+          </figure>
+          <div class="pair-readouts">
+            <div><span>Free index sums</span><strong id="pair-sums">3</strong></div>
+            <div><span>Weight in normalized trace</span><strong id="pair-weight">1</strong></div>
+          </div>
+          <p id="pair-summary" role="status">This pairing identifies <var>i</var> with <var>k</var>. The labels <var>j</var> and <var>ℓ</var> can still vary independently.</p>
+          <p class="small" id="pair-numbers">At <var>N</var> = 8, the crossed pairing has 1/64 of the weight of an adjacent pairing.</p>
+          <details class="math-details">
+            <summary>See the index counting</summary>
+            <p>In this toy Hermitian Gaussian matrix, a contraction gives
+              <span class="equation">⟨<var>M</var><sub>ij</sub><var>M</var><sub>kl</sub>⟩ = δ<sub>il</sub>δ<sub>jk</sub>/<var>N</var></span>.
+              The two contractions contribute 1/<var>N</var><sup>2</sup> and the normalized trace contributes another 1/<var>N</var>. Three free sums give <var>N</var><sup>3</sup> and one free sum gives <var>N</var>. The two adjacent pairings and one crossed pairing give a total of 2 + 1/<var>N</var><sup>2</sup>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section flow-section" id="flow" aria-labelledby="flow-title">
+      <header class="section-intro">
+        <p class="eyebrow">Renormalization-group flow</p>
+        <h2 id="flow-title">Follow the flow <em>to a fixed point</em></h2>
+        <p>The three dots start with different interaction strengths. Press play to follow them towards longer distances and see them approach the same stable point.</p>
+      </header>
+
+      <div class="flow-lab">
+        <figure class="flow-figure">
+          <div class="flow-title"><h3>Two quartic couplings</h3><span>One loop · <var>N</var> → ∞</span></div>
+          <canvas id="flow-plot" role="img" aria-label="One-loop renormalization-group flow in the two rescaled quartic couplings, with three trajectories approaching the stable fixed point (0.2, −0.2)."></canvas>
+          <figcaption><span><i class="fixed-key" aria-hidden="true"></i> Stable fixed point</span><span><i class="saddle-key" aria-hidden="true"></i> Saddle</span></figcaption>
+        </figure>
+
+        <div class="flow-controls panel">
+          <div class="flow-playback">
+            <button class="button button-primary requires-js" id="flow-play" type="button"><span id="flow-play-label">Play flow</span><span class="flow-icon" aria-hidden="true"></span></button>
+            <button class="plain-button requires-js" id="flow-reset" type="button">Reset</button>
+          </div>
+          <div class="slider-box requires-js">
+            <div class="slider-label"><label for="flow-time">RG time <var>τ</var></label><output id="time-value" for="flow-time">0.0</output></div>
+            <input type="range" id="flow-time" min="0" max="30" step="0.1" value="0">
+            <div class="slider-endpoints"><span>Shorter distances</span><span>Longer distances</span></div>
+          </div>
+          <table class="flow-table">
+            <caption>Positions along the flow</caption>
+            <thead><tr><th scope="col">Path</th><th scope="col"><var>a</var></th><th scope="col"><var>b</var></th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><i class="path-key path-a" aria-hidden="true"></i> A</th><td id="flow-a-0">0.105</td><td id="flow-b-0">0.020</td></tr>
+              <tr><th scope="row"><i class="path-key path-b" aria-hidden="true"></i> B</th><td id="flow-a-1">0.312</td><td id="flow-b-1">0.045</td></tr>
+              <tr><th scope="row"><i class="path-key path-c" aria-hidden="true"></i> C</th><td id="flow-a-2">0.170</td><td id="flow-b-2">−0.150</td></tr>
+            </tbody>
+          </table>
+          <p class="small">The mass is tuned to criticality and the Yukawa coupling is held at its one-loop fixed-point value. The plot follows three trajectories in the basin of attraction.</p>
+        </div>
+      </div>
+      <details class="math-details flow-details">
+        <summary>Equations behind the animation</summary>
+        <p>Set <span class="equation"><var>a</var> = λ<sub>1</sub>/[(4π)<sup>2</sup>ε]</span>,
+          <span class="equation"><var>b</var> = λ<sub>2</sub>/[(4π)<sup>2</sup>ε]</span>,
+          <span class="equation"><var>u</var> = λ<sub>y</sub><sup>2</sup>/[(4π)<sup>2</sup>ε]</span> and
+          <span class="equation"><var>τ</var> = ε log(μ<sub>0</sub>/μ)</span>.
+          At <span class="equation"><var>u</var> = 16/5</span>, the one-loop equations become</p>
+        <p class="display-equations"><span>d<var>a</var>/d<var>τ</var> = (3/5)<var>a</var> − 4<var>a</var><sup>2</sup> + 1/25</span>
+          <span>d<var>b</var>/d<var>τ</var> = (3/5)<var>b</var> − 6<var>a</var><sup>2</sup> − 8<var>ab</var> − 2<var>b</var><sup>2</sup> + 3/25</span></p>
+        <p>In this slice, <span class="equation">(1/5, −1/5)</span> is stable and <span class="equation">(1/5, −3/10)</span> is a saddle. The stable point is the supersymmetric point of the SU(<var>N</var>) and SO(<var>N</var>) S<sub>2</sub> models. The matched mixed-model fixed point shares the large-<var>N</var> flow after rescaling.</p>
+      </details>
+      <a class="source-link" href="https://arxiv.org/pdf/2307.06841#page=23">One-loop flow · Paper Eqs. (3.16–3.18) and Fig. 3.3 <span class="external-icon" aria-hidden="true"></span></a>
+    </section>
+
+    <section class="dimensions-band" id="dimensions" aria-labelledby="dimensions-title">
+      <div class="wrap dimensions-inner">
+        <div class="dimensions-copy">
+          <p class="eyebrow">Scaling dimensions</p>
+          <h2 id="dimensions-title">A half-step <em>apart</em></h2>
+          <p>A scaling dimension tells you how a field’s correlations change with distance. At the matched planar fixed point, the fermion’s scaling dimension is exactly half a unit above the scalar’s in the displayed perturbative result.</p>
+          <p>Slide <var>ε</var> to move from four toward three spacetime dimensions. The curves use the paper’s expansion through <var>ε</var><sup>3</sup>. The expansion is controlled near <var>ε</var> = 0. Its value at <var>ε</var> = 1 is an extrapolation.</p>
+          <a class="source-link" href="https://arxiv.org/pdf/2307.06841#page=24">Planar scaling dimensions · Paper Eq. (3.28) <span class="external-icon" aria-hidden="true"></span></a>
+          <details class="math-details">
+            <summary>What changes at finite <var>N</var>?</summary>
+            <p>In the mixed model the leading one-loop correction to the gap is <span class="equation">+<var>ε</var>/(5<var>N</var>)</span>. It falls away as <var>N</var> grows. This expansion describes large finite <var>N</var>. <a class="source-link" href="https://arxiv.org/pdf/2307.06841#page=40">Paper Eq. (5.9) <span class="external-icon" aria-hidden="true"></span></a></p>
+          </details>
+        </div>
+
+        <div class="dimensions-lab panel">
+          <div class="lab-title"><h3>Scaling dimensions of the fields</h3><span>Through three loops</span></div>
+          <canvas id="dimensions-plot" role="img" aria-label="Scalar and fermion scaling dimensions at large N as functions of epsilon. The fermion curve stays one-half above the scalar curve."></canvas>
+          <div class="slider-box requires-js">
+            <div class="slider-label"><label for="epsilon">Expansion parameter <var>ε</var></label><output id="epsilon-value" for="epsilon">0.45</output></div>
+            <input type="range" id="epsilon" min="0" max="1" step="0.01" value="0.45">
+            <div class="slider-endpoints"><span>4 dimensions</span><span>3 dimensions</span></div>
+          </div>
+          <div class="dimension-readouts">
+            <div><span><i class="dimension-key scalar-key" aria-hidden="true"></i> Scalar Δ<sub>φ</sub></span><strong id="dimension-scalar">0.824</strong></div>
+            <div><span><i class="dimension-key fermion-key" aria-hidden="true"></i> Fermion Δ<sub>ψ</sub></span><strong id="dimension-fermion">1.324</strong></div>
+            <div><span>Gap Δ<sub>ψ</sub> − Δ<sub>φ</sub></span><strong>0.500</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="paper" aria-labelledby="paper-title">
+      <div class="paper-cta">
+        <div>
+          <p class="eyebrow">The paper</p>
+          <h2 id="paper-title">Emergent supersymmetry <em>at large <var>N</var></em></h2>
+          <p>Shiroman Prakash and Shubham Kumar Sinha · JHEP 01 (2024) 025</p>
+        </div>
+        <div class="paper-actions">
+          <a class="button button-primary" href="https://doi.org/10.1007/JHEP01(2024)025">Journal article <span class="external-icon" aria-hidden="true"></span></a>
+          <a class="button button-outline" href="https://arxiv.org/abs/2307.06841">arXiv:2307.06841 <span class="external-icon" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <a href="../../">Shubham Kumar Sinha<span>.</span></a>
+    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>
