@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ea">
+  <meta name="description" content="An illustrated guide to Dirac cones, graphene, topological-insulator surfaces, and the optical signature of emergent supersymmetry. Explore 15 figures and interactive models.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dirac cones in quantum matter">
+  <meta property="og:description" content="Follow a Dirac cone from graphene to a topological surface and an exact prediction for how it responds to light.">
+  <meta property="og:url" content="https://shubham-kumar-sinha.github.io/research/dirac-cones/">
+  <link rel="canonical" href="https://shubham-kumar-sinha.github.io/research/dirac-cones/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="dirac.css">
+  <script type="module" src="dirac.js"></script>
+  <title>Dirac cones in quantum matter | Shubham Kumar Sinha</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap" id="top">
+    <a class="brand" href="../../">
+      <span class="brand-mark" aria-hidden="true">S<span>.</span></span>
+      <span>Shubham Kumar Sinha<small>Theoretical physics</small></span>
+    </a>
+    <a class="back" href="../../#research"><span aria-hidden="true">←</span> Research</a>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="overline"><i aria-hidden="true"></i> Quantum matter</p>
+        <h1 id="title">Dirac cones <em>in quantum matter</em></h1>
+        <p class="hero-lead">Follow a crossing in an energy-band diagram from a single sheet of carbon to the surface of a topological insulator. Then see how the surface’s response to light changes at the threshold of superconductivity.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#bands">Explore the 15 figures <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="https://arxiv.org/pdf/1510.06397">Read the source paper <i class="external" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <figure class="panel hero-plot" id="fig-cone">
+        <figcaption>
+          <p class="fig-number">Figure 01</p>
+          <h2>Slice the Dirac cone</h2>
+        </figcaption>
+        <canvas data-plot="cone" role="img" aria-label="Upper and lower linear energy bands form two cones touching at zero energy and momentum. A horizontal energy slice cuts a circular contour through one cone."></canvas>
+        <div class="plot-legend">
+          <span><i class="legend upper" aria-hidden="true"></i> Upper band</span>
+          <span><i class="legend lower" aria-hidden="true"></i> Lower band</span>
+          <span><i class="legend highlight" aria-hidden="true"></i> Constant-energy contour</span>
+        </div>
+        <div class="control hero-control">
+          <div class="range-wrap">
+            <div class="control-label"><label for="energy-slice">Slice energy</label><output id="slice-value" for="energy-slice" aria-live="off">0.58</output></div>
+            <input type="range" id="energy-slice" min="-0.96" max="0.96" step="0.01" value="0.58">
+          </div>
+          <button class="small-button" id="sweep" type="button">Animate slice</button>
+        </div>
+        <p class="caption-copy">At the crossing, the contour shrinks to a point. The ideal bands have <span class="math"><var>E</var><sub>±</sub> = ±ℏ<var>v</var>|<b>q</b>|</span>, with <b>q</b> measured from the crossing. The graph uses normalized units.</p>
+      </figure>
+    </section>
+
+    <nav class="chapter-nav wrap" aria-label="On this page">
+      <a href="#bands">Band geometry</a>
+      <a href="#graphene">Graphene</a>
+      <a href="#surface">TI surfaces</a>
+      <a href="#critical">Quantum critical point</a>
+      <a href="#response">Optical response</a>
+    </nav>
+    <noscript><p class="wrap no-script">Enable JavaScript to view the figures and use the controls. The explanations and source links are below.</p></noscript>
+
+    <section class="chapter wrap" id="bands" aria-labelledby="bands-title">
+      <header class="chapter-head">
+        <div><p class="overline">Band geometry</p><h2 id="bands-title">What makes <em>a cone?</em></h2></div>
+        <p>A vertical slice through the cone gives two straight bands crossing. Adding a Dirac mass separates the bands and leaves an interval with zero available states. The mass control updates both plots.</p>
+      </header>
+      <div class="figure-grid two">
+        <figure class="panel" id="fig-mass">
+          <figcaption><p class="fig-number">Figure 02</p><h3>Open a band gap</h3></figcaption>
+          <canvas data-plot="mass" role="img" aria-label="Energy versus momentum for a massive Dirac cone. The band edges at zero momentum are plus and minus the mass."></canvas>
+          <div class="control">
+            <div class="control-label"><label for="dirac-mass">Dirac mass <var>m</var></label><output id="mass-value" for="dirac-mass">0.30</output></div>
+            <input type="range" id="dirac-mass" min="0" max="0.9" step="0.01" value="0.30">
+            <p class="control-note">Band gap <output id="gap-value" aria-live="off">0.60</output></p>
+          </div>
+          <p class="caption-copy"><span class="math"><var>E</var><sub>±</sub> = ±√[(ℏ<var>v</var><var>q</var>)² + <var>m</var>²]</span>. At <var>q</var> = 0 the separation is 2|<var>m</var>|. Dashed lines show the massless case.</p>
+        </figure>
+        <figure class="panel" id="fig-dos">
+          <figcaption><p class="fig-number">Figure 03</p><h3>Count the available states</h3></figcaption>
+          <canvas data-plot="dos" role="img" aria-label="Density of states of a two-dimensional Dirac cone. The density is zero in the gap and increases linearly with absolute energy outside the gap."></canvas>
+          <p class="caption-copy">In two dimensions the number of momentum states in a thin ring grows with its radius. This gives a density of states proportional to |<var>E</var>| outside the gap, for one cone per unit area.</p>
+          <p class="formula-note math">2π(ℏ<var>v</var>)²<var>D</var>(<var>E</var>) = |<var>E</var>| Θ(|<var>E</var>| − |<var>m</var>|)</p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter chapter-tint" id="graphene" aria-labelledby="graphene-title">
+      <div class="wrap">
+        <header class="chapter-head">
+          <div><p class="overline">Graphene</p><h2 id="graphene-title">One carbon sheet, <em>two valleys</em></h2></div>
+          <p>Graphene’s honeycomb has two sublattices. Their electronic amplitudes form a two-component wavefunction. Nearest-neighbor hopping makes its two bands meet at two inequivalent corners of the Brillouin zone.</p>
+        </header>
+        <div class="figure-grid two">
+          <figure class="panel" id="fig-lattice">
+            <figcaption><p class="fig-number">Figure 04</p><h3>The honeycomb lattice</h3></figcaption>
+            <canvas data-plot="lattice" role="img" aria-label="A honeycomb of carbon atoms with sublattice A sites shown in green and sublattice B sites shown in orange. Each interior site has three nearest neighbors."></canvas>
+            <div class="plot-legend"><span><i class="legend upper" aria-hidden="true"></i> Sublattice A</span><span><i class="legend lower" aria-hidden="true"></i> Sublattice B</span></div>
+            <p class="caption-copy">Every carbon site has three nearest neighbors on the other sublattice. One A site and one B site make up a primitive cell.</p>
+          </figure>
+          <figure class="panel" id="fig-zone">
+            <figcaption><p class="fig-number">Figure 05</p><h3>Find <var>K</var> and <var>K</var>′</h3></figcaption>
+            <canvas data-plot="zone" role="img" aria-label="The first Brillouin zone is a hexagon. Its corners alternate between equivalent copies of valley K and equivalent copies of valley K prime. The highlighted path runs from Gamma to K, M, K prime, and back to Gamma."></canvas>
+            <div class="control valley-control">
+              <div class="segmented" role="group" aria-label="Choose a graphene valley">
+                <button type="button" data-valley="1" aria-pressed="true">Valley K</button>
+                <button type="button" data-valley="-1" aria-pressed="false">Valley K′</button>
+              </div>
+            </div>
+            <p class="caption-copy">Three corners are copies of <var>K</var> and three are copies of <var>K</var>′, related within each group by reciprocal-lattice translations. The selected valley carries through Figures 06 and 07.</p>
+          </figure>
+        </div>
+        <div class="figure-grid graphene-detail">
+          <figure class="panel" id="fig-graphene-bands">
+            <figcaption><p class="fig-number">Figure 06</p><h3>Two valleys, two crossings</h3></figcaption>
+            <canvas data-plot="graphene-bands" role="img" aria-label="Nearest-neighbor graphene bands along Gamma to K to M to K prime to Gamma. The bands touch at K and K prime and reach plus and minus three hopping units at Gamma."></canvas>
+            <p class="caption-copy">The two bands touch at both valleys along the momentum path traced in Figure 05. The energy is in units of the hopping <var>t</var>.</p>
+            <p class="formula-note math"><var>E</var><sub>±</sub>(<b>k</b>)/<var>t</var> = ±|Σ<sub>j</sub> exp(<var>i</var><b>k</b> · <b>δ</b><sub>j</sub>)|</p>
+          </figure>
+          <figure class="panel" id="fig-pseudo">
+            <figcaption><p class="fig-number">Figure 07</p><h3>Sublattice pseudospin</h3></figcaption>
+            <canvas data-plot="pseudo" role="img" aria-label="Pseudospin arrows around a small momentum circle in the upper graphene band. Changing valleys reverses the winding."></canvas>
+            <p class="caption-copy" id="pseudo-readout">At <var>K</var>, pseudospin winds counterclockwise as momentum circles counterclockwise. At <var>K</var>′ the winding reverses.</p>
+            <p class="formula-note math"><var>H</var><sub>τ</sub> = ℏ<var>v</var>(τ<var>q</var><sub>x</sub>σ<sub>x</sub> + <var>q</var><sub>y</sub>σ<sub>y</sub>)</p>
+          </figure>
+        </div>
+        <p class="section-source">Graphene’s two-component pseudospin tracks the A and B amplitudes. Electron spin is an additional degree of freedom. <a href="https://arxiv.org/abs/0709.1163">Castro Neto et al., <cite>The electronic properties of graphene</cite> <i class="external" aria-hidden="true"></i></a></p>
+      </div>
+    </section>
+
+    <section class="chapter wrap" id="surface" aria-labelledby="surface-title">
+      <header class="chapter-head">
+        <div><p class="overline">Topological-insulator surfaces</p><h2 id="surface-title">A conducting surface, <em>a gapped bulk</em></h2></div>
+        <p>A strong three-dimensional topological insulator has a bulk energy gap and can support a single Dirac cone on a given surface. On an ideal surface, the electron spin direction is tied to its direction of motion in momentum space.</p>
+      </header>
+      <div class="figure-grid three">
+        <figure class="panel" id="fig-slab">
+          <figcaption><p class="fig-number">Figure 08</p><h3>A crystal with surface states</h3></figcaption>
+          <canvas data-plot="slab" role="img" aria-label="Schematic three-dimensional slab with a gapped interior and conducting boundary states, highlighted on its top and bottom faces."></canvas>
+          <p class="caption-copy">A thick slab separates the top and bottom surface states. The interior has no extended electronic states within the bulk gap. This is a schematic of the boundary and bulk.</p>
+        </figure>
+        <figure class="panel" id="fig-surface-bands">
+          <figcaption><p class="fig-number">Figure 09</p><h3>A cone inside the bulk gap</h3></figcaption>
+          <canvas data-plot="surface-bands" role="img" aria-label="A model surface Dirac crossing lies in the gap between the projected bulk valence and conduction bands."></canvas>
+          <p class="caption-copy">The surface bands cross at the Dirac point. The shaded regions are the projected bulk bands in this illustrative dispersion.</p>
+        </figure>
+        <figure class="panel" id="fig-spin">
+          <figcaption><p class="fig-number">Figure 10</p><h3>Spin–momentum locking</h3></figcaption>
+          <canvas data-plot="spin" role="img" aria-label="Ideal topological surface spin is tangent to a circular momentum contour. The upper and lower bands have opposite spin directions at the same momentum."></canvas>
+          <div class="control">
+            <div class="segmented" role="group" aria-label="Choose the surface band">
+              <button type="button" data-band="1" aria-pressed="true">Upper band</button>
+              <button type="button" data-band="-1" aria-pressed="false">Lower band</button>
+            </div>
+          </div>
+          <p class="caption-copy">The spin is perpendicular to momentum in the ideal surface model. Switching bands reverses the spin at each momentum.</p>
+          <p class="formula-note math"><var>H</var><sub>surf</sub> = ℏ<var>v</var>(<var>q</var><sub>x</sub>σ<sub>y</sub> − <var>q</var><sub>y</sub>σ<sub>x</sub>)</p>
+        </figure>
+      </div>
+      <p class="section-source"><a href="https://arxiv.org/abs/1002.3895">Hasan and Kane, <cite>Colloquium: Topological insulators</cite> <i class="external" aria-hidden="true"></i></a></p>
+    </section>
+
+    <section class="chapter chapter-dark" id="critical" aria-labelledby="critical-title">
+      <div class="wrap">
+        <header class="chapter-head">
+          <div><p class="overline">The paper’s surface transition</p><h2 id="critical-title">When electrons <em>start to pair</em></h2></div>
+          <p>Place the chemical potential at the surface Dirac point and tune toward superconductivity. At the zero-temperature transition, the Dirac fermion and the fluctuating Cooper-pair field become partners under emergent supersymmetry.</p>
+        </header>
+        <div class="figure-grid two">
+          <figure class="panel" id="fig-phase">
+            <figcaption><p class="fig-number">Figure 11</p><h3>Find the quantum critical point</h3></figcaption>
+            <canvas data-plot="phase" role="img" aria-label="Schematic temperature versus tuning parameter. The zero-temperature superconducting and Dirac semimetal ground states meet at r equals zero, below a quantum critical fan bounded by crossover lines."></canvas>
+            <div class="control">
+              <div class="control-label"><label for="tuning">Tuning parameter <var>r</var></label><output id="tuning-value" for="tuning">0.00</output></div>
+              <input type="range" id="tuning" min="-1" max="1" step="0.05" value="0">
+              <p class="control-note" id="phase-status" role="status">Quantum critical point at <var>T</var> = 0</p>
+            </div>
+            <p class="caption-copy">Dashed curves mark crossovers. The solid curve sketches the finite-temperature superconducting boundary. Adapted from the paper’s Figure 1.</p>
+          </figure>
+          <figure class="panel" id="fig-potential">
+            <figcaption><p class="fig-number">Figure 12</p><h3>Where the pair field settles</h3></figcaption>
+            <canvas data-plot="potential" role="img" aria-label="A real-axis cut through the classical potential for the complex Cooper-pair field. Positive r has one minimum at zero. Negative r has two minima in the cut, from a circle of minima in the full potential."></canvas>
+            <p class="caption-copy">Move <var>r</var> in Figure 11. For <var>r</var> &lt; 0, the two minima in this real-axis cut belong to a circle of minima of the complex field. The plot shows the classical potential in Eq. (1). Quantum fluctuations control the actual critical point.</p>
+            <p class="formula-note math"><var>V</var>(φ) = (<var>r</var>/2)|φ|² + (<var>u</var>/2)|φ|⁴ &nbsp; · &nbsp; <var>u</var> = 1 in the plot</p>
+          </figure>
+        </div>
+        <p class="section-source"><a href="https://arxiv.org/pdf/1510.06397#page=1">Witczak-Krempa and Maciejko, Figure 1 and Eq. (1) <i class="external" aria-hidden="true"></i></a></p>
+      </div>
+    </section>
+
+    <section class="chapter wrap response" id="response" aria-labelledby="response-title">
+      <header class="chapter-head">
+        <div><p class="overline">Optical response</p><h2 id="response-title">What light <em>can tell us</em></h2></div>
+        <p>Optical conductivity measures how the surface current responds to an oscillating electric field. At the critical point, scale invariance fixes the shape of the zero-temperature response. Supersymmetry fixes its relation to shear and entanglement.</p>
+      </header>
+      <div class="figure-grid two">
+        <figure class="panel" id="fig-conductivity">
+          <figcaption><p class="fig-number">Figure 13</p><h3>A universal optical plateau</h3></figcaption>
+          <canvas data-plot="conductivity" role="img" aria-label="At positive frequencies in the zero-temperature scaling regime, the interacting critical conductivity is a constant 0.2271 in units of e squared over hbar. A free single Dirac cone gives 0.0625."></canvas>
+          <p class="caption-copy">The exact plateau at <var>T</var> = 0 is about 3.63 times the value for a free single Dirac cone. The frequency axis spans the low-energy scaling regime.</p>
+          <p class="formula-note math">σ<sub>∞</sub> = 5(16π − 9√3)/(243π) ≈ 0.2271</p>
+        </figure>
+        <figure class="panel" id="fig-shear">
+          <figcaption><p class="fig-number">Figure 14</p><h3>Conductivity and shear</h3></figcaption>
+          <canvas data-plot="shear" role="img" aria-label="A scatter plot of universal shear and optical conductivity coefficients. The supersymmetric critical point lies on eta infinity equals sigma infinity divided by 40. The comparison superconductor–insulator point has a similar conductivity and a smaller shear coefficient."></canvas>
+          <p class="caption-copy">Two critical points can have very similar conductivities. The supersymmetric surface transition also obeys <span class="math">η<sub>∞</sub> = σ<sub>∞</sub>/40</span> and has a near-smooth entanglement corner coefficient <span class="math">λ<sub>corner</sub> = σ<sub>∞</sub>/20</span>.</p>
+        </figure>
+      </div>
+
+      <p class="section-source"><a href="https://arxiv.org/pdf/1510.06397#page=3">Witczak-Krempa and Maciejko, Eqs. (3)–(5) <i class="external" aria-hidden="true"></i></a></p>
+
+      <div class="thermal-grid">
+        <div class="thermal-copy">
+          <h3>The missing thermal term</h3>
+          <p>At finite temperature the response depends on the ratio <span class="math"><var>x</var> = ℏω/(<var>k</var><sub>B</sub><var>T</var>)</span>. When <var>x</var> is large, the stress tensor could contribute a term proportional to <span class="math">(<var>i</var>/<var>x</var>)³</span>. The paper finds its coefficient is exactly zero at this supersymmetric critical point.</p>
+          <details>
+            <summary>Read the high-frequency expansion</summary>
+            <p class="math">σ/(<var>e</var>²/ℏ) = σ<sub>∞</sub> + <var>b</var>(<var>i</var>/<var>x</var>)<sup>Δ<sub>r</sub></sup> + <var>b</var>′(<var>i</var>/<var>x</var>)³ + ⋯</p>
+            <p>Here <span class="math">Δ<sub>r</sub> = 3 − 1/ν ≈ 1.91</span>. Supersymmetry sets <span class="math"><var>b</var>′ = 0</span>. The scalar coefficient <var>b</var> is undetermined by this argument.</p>
+          </details>
+          <a class="text-link" href="https://arxiv.org/pdf/1510.06397#page=4">Paper Eqs. (6) and (7) <i class="external" aria-hidden="true"></i></a>
+        </div>
+        <figure class="panel" id="fig-thermal">
+          <figcaption><p class="fig-number">Figure 15</p><h3>High-frequency thermal terms</h3></figcaption>
+          <canvas data-plot="thermal" role="img" aria-label="The magnitude of the scalar power-law factor decays with the frequency-to-temperature ratio. The stress-tensor contribution is identically zero."></canvas>
+          <div class="control">
+            <div class="control-label"><label for="thermal-ratio">Frequency-to-temperature ratio <var>x</var></label><output id="ratio-value" for="thermal-ratio">25</output></div>
+            <input type="range" id="thermal-ratio" min="10" max="80" step="1" value="25">
+            <p class="control-note">Normalized scalar factor <output id="factor-value" aria-live="off">0.174</output></p>
+          </div>
+          <p class="caption-copy">The green curve isolates the magnitude of the scalar power law and sets it to one at <var>x</var> = 10. The orange line shows the vanishing stress-tensor term. These are terms in the expansion of the conductivity.</p>
+        </figure>
+      </div>
+
+      <aside class="paper-source">
+        <div><p class="overline">Source paper</p><h3>Optical conductivity of topological surface states with emergent supersymmetry</h3><p>William Witczak-Krempa and Joseph Maciejko · Phys. Rev. Lett. 116, 100402 (2016)</p></div>
+        <a class="button primary" href="https://arxiv.org/pdf/1510.06397">Read the paper <i class="external" aria-hidden="true"></i></a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <a href="../../#research">← Back to Research</a>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>
