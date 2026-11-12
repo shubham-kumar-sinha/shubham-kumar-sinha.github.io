@@ -310,6 +310,34 @@ input[type="range"] { width: 100%; min-height: 24px; margin: 1px 0 0; accent-col
 .segmented button[aria-pressed="true"] { color: #17462d; border-color: #7ea786; background: #d4ead2; }
 .valley-control { width: fit-content; }
 
+.symmetry-figure {
+  margin-top: clamp(10px, 1.8vw, 21px);
+  scroll-margin-top: 18px;
+}
+.symmetry-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 9px 20px;
+}
+.symmetry-controls .control-label { margin-bottom: 4px; }
+.symmetry-controls button { min-height: 40px; }
+.symmetry-figure canvas { height: clamp(330px, 35vw, 408px); }
+.symmetry-status {
+  min-height: 2.5em;
+  padding: 5px 9px;
+  border-left: 2px solid #81a88a;
+  font-size: .82rem;
+}
+.symmetry-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px clamp(18px, 3.3vw, 44px);
+  padding-top: 9px;
+  border-top: 1px solid var(--rule);
+}
+.symmetry-notes strong { color: var(--ink); }
+
 .section-source {
   margin-top: 12px;
   color: var(--muted);
@@ -377,6 +405,8 @@ input[type="range"] { width: 100%; min-height: 24px; margin: 1px 0 0; accent-col
   .chapter-head > p, .thermal-copy > p { font-size: .94rem; }
   .chapter-nav a { min-height: 34px; font-size: .72rem; }
   .panel canvas { height: clamp(216px, 57vw, 295px); }
+  .symmetry-figure canvas { height: 432px; }
+  .symmetry-notes { grid-template-columns: minmax(0, 1fr); }
   .hero-plot canvas { height: clamp(248px, 67vw, 350px); }
   .paper-source p:not(.overline) { font-size: .76rem; }
 }
